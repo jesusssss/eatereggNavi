@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="msapplication-tap-highlight" content="no" />
+        <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height" />
+        <link href='http://fonts.googleapis.com/css?family=Lobster|Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'/>
+        <link rel="stylesheet/less" type="text/css" href="css/index.less" />
+        <link rel="stylesheet" type="text/css" href="css/swipe.css" />
+        <link rel="stylesheet" type="text/css" href="css/rangeslider.css" />
+        <title>EasterEgg</title>
+        <!-- TESTING -->
+
+
+    </head>
+    <body >
+    <div id="phoneWrapper">
+        <!-- Login form -->
+
+        <div id="loginForm" class="form blue">
+            <div class="login-container">
+                <div class="loginTop">
+                    EasterEgg
+                </div>
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <div class="center">
+                            Login
+                        </div>
+                        <input type="text" id="loginUsername" placeholder="Username"/>
+                        <input type="text" id="loginPassword" placeholder="Password"/>
+                        <button id="doLogin" class="green">Login</button>
+                        <div class="loginBottom">
+                            <div onclick="loginSwiper.swipeTo(1);" class="loginBottomLeft">
+                                Create new user
+                            </div>
+                            <div onclick="loginSwiper.swipeTo(2);" class="loginBottomRight">
+                                Forgot password?
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="center">
+                            New user
+                        </div>
+                        <input type="text" id="newEmail" placeholder="Email"/>
+                        <input type="text" id="newDisplayname" maxlength="10" placeholder="Display name"/>
+                        <input type="text" id="newUsername" placeholder="Username"/>
+                        <input type="text" id="newPassword" placeholder="Password"/>
+                        <input type="text" id="newPasswordCheck" placeholder="Password again"/>
+                        <button id="createUser" class="green">Create user</button>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="center">
+                            Forgot password    
+                        </div>
+                        <input type="text" id="forgotEmail" placeholder="Type your email"/>
+                        <button id="forgotPassword" class="green">Get information</button>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+
+        <!-- Login form end -->
+
+
+        <div id="loading"></div>
+        <div id="content">
+            <div class="wrapper blue">
+                <div class="menuWrapper blue">
+                    <div class="menu-swiper">
+                        <div id="menu-top" class="darkBlue">
+                            <div class="profileImage">
+
+                            </div>
+                            <div class="fullname"></div>
+                            <div id="close"></div>
+                        </div>
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide swiper-no-swiping">
+                                <!-- First menu : list of options -->
+                                <div id="menuOptions">
+                                    <ul>
+                                        <li class="gotoUserInformation">
+                                            <div class="icon"><img src="img/userIcon.png" alt=""/></div>
+                                            <div class="label">User information</div>
+                                        </li>
+                                        <li class="gotoFriendInvites">
+                                            <div class="icon"><img src="img/friendsIcon.png" alt=""/></div>
+                                            <div class="label">Friend invites</div>
+                                            <div class="countInvites"></div>
+                                        </li>
+                                        <li class="gotoProfilePicture">
+                                            <div class="icon"><img src="img/profilePictureIcon.png" alt=""/></div>
+                                            <div class="label">Profile picture</div>
+                                        </li>
+                                        <!--<li class="gotoSettings">-->
+                                            <!--<div class="icon"><img src="img/settingsIcon.png" alt=""/></div>-->
+                                            <!--<div class="label">Settings</div>-->
+                                        <!--</li>-->
+                                        <li class="logout">
+                                            <div class="icon"><img src="img/shutdownIcon.png" alt=""/></div>
+                                            <div class="label">Log off</div>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="menuBreak green friends">
+                                    <img src="img/friendsIcon.png" alt=""/>
+                                    Friends
+                                </div>
+                                <div id="menuFriends">
+                                    <div class="friendList">
+                                        <ul>
+
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="menuBottom gotoAddFriend lightGreen">
+                                    + Add friend
+                                </div>
+                            </div>
+                            <div class="swiper-slide swiper-no-swiping">
+                                <div class="menuBreak green">
+                                    <img src="img/userIcon.png" alt=""/>
+                                    User information
+                                </div>
+                                <div class="form">
+                                    <div class="title">
+                                        Username
+                                    </div>
+                                    <input type="text" class="username" disabled="true"/>
+                                    <div class="title">
+                                        Display name
+                                    </div>
+                                    <input type="text" maxlength="10" id="firstname" class="firstname"/>
+                                    <button id="editName" class="orange">Save</button>
+                                </div>
+                                <div class="menuBottom lightGreen menuBack">
+                                    Go back
+                                </div>
+                            </div>
+                            <div class="swiper-slide swiper-no-swiping">
+                                <div class="menuBreak green">
+                                    <img src="img/friendsIcon.png" alt=""/>
+                                    Friend invites
+                                </div>
+                                <div class="friendInvites">
+                                    <div class="pending">
+                                        <div class="pendingList">
+                                            <ul>
+
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="menuBottom lightGreen menuBack">
+                                    Go back
+                                </div>
+                            </div>
+                            <div class="swiper-slide swiper-no-swiping">
+                                <div class="menuBreak green">
+                                    <img src="img/profilePictureIcon.png" alt=""/>
+                                    Profile picture
+                                </div>
+                                <div class="profileImage picturePreview">
+
+                                </div>
+                                <div class="form">
+                                    <button class="green" id="capturePicture">Capture new</button>
+                                    <button class="lightGreen" id="fromGallery">From gallery</button>
+                                    <button class="orange" id="savePicture" style="display: none;">Save</button>
+                                </div>
+                                <div class="menuBottom lightGreen menuBack">
+                                    Go back
+                                </div>
+                            </div>
+                            <div class="swiper-slide swiper-no-swiping">
+                                <div class="menuBreak green">
+                                    <img src="img/settingsIcon.png" alt=""/>
+                                    Settings
+                                </div>
+                                Insert settings configuration
+                                <div class="menuBottom lightGreen menuBack">
+                                    Go back
+                                </div>
+                            </div>
+                            <div class="swiper-slide swiper-no-swiping">
+                                <div class="menuBreak green">
+                                    <img src="img/friendsIcon.png" alt=""/>
+                                    + Add friend
+                                </div>
+                                <div class="form">
+                                    <div class="title">
+                                        Enter username
+                                    </div>
+                                    <input type="text" id="requestFriend" class="request"/>
+                                    <button id="addFriend" class="orange">Request friend</button>
+                                </div>
+                                <div class="menuBottom lightGreen menuBack">
+                                    Go back
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-container">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <div class="swiper-layegg">
+                                <div id="mainTop" class="blue">
+                                    <div id="mainTopWrapper">
+                                        <div id="menuIcon">
+                                            <img src="img/menuIcon.png" height="20" alt=""/>
+                                        </div>
+                                        <div class="center">
+                                            <h1 style="margin: 5px 0px 8px;">EasterEgg</h1>
+                                        </div>
+                                        <div id="eggIcon">
+                                            <img src="img/smallCrackedEgg.png" height="25" alt=""/>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="swiper-wrapper">
+                                    <div class="swiper-slide ">
+                                        <div id="successView">
+                                            <div id="successViewTop">
+
+                                            </div>
+                                            <div id="successViewContent">
+
+                                            </div>
+                                            <div class="successViewEggsNow">View egg</div>
+                                        </div>
+                                        <div id="overlay"></div>
+                                        <div id="map">
+                                        </div>
+                                        <div id="mainBottom" class="green">
+                                            <div class="center">
+                                                <div id="radiusValue">
+                                                    525m
+                                                </div>
+                                                <div id="radius">
+                                                    <input type="range" min="50" max="1000" step="1" style="width: 100%;" value="525">
+                                                </div>
+                                                <div id="layEgg">
+                                                    <img src="img/bigEgg.png" height="55" alt=""/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="swiper-slide" style="padding-top: 64px; background: #252f40v;">
+                                        <div id="preEggInfo">
+                                            <div id="preLocation">
+
+                                            </div>
+                                            <div id="preImage">
+
+                                            </div>
+                                            <div id="horzSplit">
+                                                <img src="img/horzSplit.png" alt=""/>
+                                            </div>
+                                        </div>
+                                        <div class="menuBreak green" style="font-family: 'Lobster';">
+                                            <img src="img/friendsIcon.png" alt=""/>
+                                            Friends
+                                        </div>
+                                        <div id="preFriendSelect">
+                                            <div class="friendList">
+                                                <ul>
+                                                    <li><h2>You need some friends first</h2></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div id="preBottom">
+                                            <button id="preBack" class="orange">Start over</button>
+                                            <button id="doLeyEgg" class="lightGreen">Lay egg!</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="swiper-collection darkBlue">
+                                <div id="collectionTop" class="tabs">
+                                    <button class="tab active">To me</button>
+                                    <button class="tab">By me</button>
+                                </div>
+                                <div class="swiper-wrapper">
+                                    <div class="swiper-slide">
+                                        <div class="eggsToMe">
+                                            <!-- Latest 20-->
+                                        </div>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <div class="eggsByMe">
+                                            <!-- Latest 20 -->
+
+                                        </div>
+                                    </div>
+                                    <div class="swiper-slide swiper-no-swiping" style="padding-top: 0;">
+                                        <div class="eggViewer">
+                                            <div id="eggViewerMap"></div>
+                                            <div class="eggViewerGift"></div>
+                                            <div class="closeButton"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAQ1nzj3klCuaUot3lx7T9EHKp2xSyB918"></script>
+            <script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
+            <script type="text/javascript" src="js/less.min.js"></script>
+            <script type="text/javascript" src="js/transition.js"></script>
+            <script type="text/javascript" src="js/rangeslider.min.js"></script>
+            <script type="text/javascript" src="js/customAjax.js"></script> <!-- Got Javascript variables to use in other libs -->
+            <script type="text/javascript" src="js/customUser.js"></script>
+            <script type="text/javascript" src="js/customGoogle.js"></script>
+            <script type="text/javascript" src="js/customCamera.js"></script>
+            <script type="text/javascript" src="js/customToast.js"></script>
+            <script type="text/javascript" src="js/swipe.js"></script>
+            <script type="text/javascript" src="js/index.js"></script>
+            <script type="text/javascript" src="js/toolbox.js"></script>
+
+            <script type="text/javascript">
+            user = new userOb();
+            maps = new mapsOb();
+            camera = new cameraOb();
+            if(localStorage.getItem("user") === null) {
+                $("#loginForm").show();
+            } else {
+                $("#loginForm").hide();
+                user.load();
+                user.refreshUser();
+                maps.init();
+            }
+</script>
+        </div>
+    </div>
+    </body>
+</html>
